@@ -30,9 +30,12 @@
   "homepage": "https://github.com/lifechat/Vtech-admin#readme",
   "dependencies": {
     "@vitejs/plugin-vue": "^2.3.2",
+    "element-plus": "^2.2.0",
     "lodash": "^4.17.21",
+    "pinia": "^2.0.14",
     "vue": "^3.2.25",
-    "vue-router": "^4.0.15"
+    "vue-router": "^4.0.15",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",

@@ -2,9 +2,19 @@
     基于vue3,ts,vite的企业级管理系统架子
 
 # 搭建流程
-    此项目采用pnpm搭建的，node版本>=14
+    此项目采用pnpm搭建的，node版本>=14。下方所用shell都是针对shell
     查看 create-vite 以获取每个模板的更多细节：vanilla，vanilla-ts，vue，vue-ts，react，react-ts，preact，preact-ts，lit，lit-ts，svelte，svelte-ts。
 
+**安装项目必须依赖**
+```shell
+pnpm i target-package --save
+```
+
+**安装项目所需依赖插件库**
+```shell
+pnpm i target-plugin --save-dev
+```
+**初始化项目对应的模版脚本**
 ```shell
 # npm 6.x
 npm create vite@latest my-vue-app --template vue
