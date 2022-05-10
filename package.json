@@ -4,7 +4,7 @@
   "description": "vue3企业级管理系统",
   "main": "index.js",
   "scripts": {
-    "bootstrap": "pnpm install",
+    "vtech": "pnpm install",
     "start": "pnpm dev",
     "dev": "vite",
     "build:dev": "build",
