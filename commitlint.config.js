@@ -14,10 +14,8 @@ const commitTypes = [
   'types', // 类型修改
   'ui', // ui样式修改
 ]
-
 // 规则参考格式 feat: 功能说明
-
-  module.exports = {
+module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'type-case': [0],

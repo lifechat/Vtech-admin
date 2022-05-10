@@ -9,12 +9,13 @@
     "dev": "vite",
     "build:dev": "build",
     "build:prod": "build prod",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'"
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "npm run lint"
+      "pnpm run lint"
     ]
   },
   "keywords": [],
@@ -49,6 +50,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-define-config": "^1.4.0",
     "eslint-plugin-jest": "^26.1.5",
+    "eslint-plugin-jsdoc": "^39.2.9",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.7.1",
     "husky": "^8.0.1",

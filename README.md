@@ -32,6 +32,32 @@ pnpm create vite my-vue-app -- --template vue
 #  scss,less,css 规范
 
 
+
+# jest 测试模块搭建
+
+**测试命令**
+ ```shell
+    jest
+ ```
+**初始化：基于您的项目，Jest将向您提出几个问题，并将创建一个基本的配置文件**
+ ```shell
+    jest --init # js
+    npx ts-jest config:init #ts
+ ```
+**指定配置文件为 xxx.js 进行测试**
+ ```shell
+    jest --config xxx.js
+ ```
+**指定测试单个文件**
+ ```shell
+    jest components/button/__test__/button.test.js
+ ```
+**指定测试单个组件**
+ ```shell
+    jest components/button/*
+ ```
+
+
 # 提交规范
 
 <ul>

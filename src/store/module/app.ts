@@ -1,10 +1,17 @@
 import { defineStore } from 'pinia'
 import { store } from '@/store'
 
-interface AppState {}
+interface AppState {
+  darkMode?: unknown
+  // Page loading status
+  pageLoading: boolean
+}
 export const useAppStore = defineStore({
   id: 'app',
-  state: (): AppState => ({}),
+  state: (): AppState => ({
+    darkMode: undefined,
+    pageLoading: false,
+  }),
   getters: {},
   actions: {},
 })
