@@ -1,0 +1,34 @@
+{
+    // eslint作用文件类型
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    ],
+    // 不使用默认的格式化
+    "editor.formatOnSave": false,
+    // 保存时根据eslint规则自动格式化
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    // pretter
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.formatOnSave": true
+    },
+    "[typescript]": {
+      "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+      "editor.formatOnSave": true
+    },
+    "[scss]": {
+      "editor.formatOnSave": true
+    },
+    "workbench.colorCustomizations": {
+      "activityBar.activeBorder": "#d9b00a",
+      "activityBarBadge.background": "#d9b00a",
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+  }
