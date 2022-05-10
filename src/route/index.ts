@@ -1,0 +1,1 @@
+import {createWebHashHistory,createWebHistory} from 'vue-router'

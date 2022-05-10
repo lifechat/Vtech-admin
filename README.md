@@ -1,5 +1,5 @@
 # Vtech-admin
-    vue3,ts,企业级管理系统
+    基于vue3,ts,vite的企业级管理系统架子
 
 # 搭建流程
     此项目采用pnpm搭建的，node版本>=14
@@ -18,6 +18,8 @@ yarn create vite my-vue-app --template vue
 # pnpm
 pnpm create vite my-vue-app -- --template vue
  ```
+
+#  scss,less,css 规范
 
 
 # 提交规范
