@@ -31,4 +31,5 @@
       "activityBarBadge.background": "#d9b00a",
     },
     "typescript.tsdk": "node_modules/typescript/lib",
+    "commentTranslate.targetLanguage": "zh-CN",
   }

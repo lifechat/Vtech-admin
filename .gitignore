@@ -22,3 +22,7 @@ yarn-error.log
 *.njsproj
 *.sln
 *.sw?
+
+
+# jest test files
+coverage
