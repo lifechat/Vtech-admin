@@ -69,7 +69,62 @@
  ```
 
 ### 对象和函数直接量的歧义问题
+- eval方法能够很轻松地执行普通表达式或者语句，并返回对应的返回值，而在计算下方code则会返回异常产生歧义
+```javascript
+    var o = '{user:"c88",pass:"123456"}';
+    console.log(eval(o)) // thorw error
+```
+- 或许你会产生上面表达式是否有错误，其实并没有，如果我们只定义一个属性却是正确的，则就表明对象产生对应的歧义问题！
+```javascript
+    var b = '{user:"c88"}';
+    console.log(eval(b)) // c88
+
+    // 我们平时生成obj对象是 obj = { age : 12 , str:'123' } 
+    //key 必须都是字符串,这是正确对象字面量的解析,产生歧义部分的问题：
+```
+**上述产生歧义是复合语句和冒号导致** 为了避免这种歧义采用下方code：
+```javascript
+  var o = '({user:"c88",pass:"123456"})';
+  console.log(eval(o)) //{user: 'c88', pass: '123456'}
+```
+
+- function 也属于一种对象的表达形式，所以要通过function来进行处理字面量也需要避免歧义
+```javascript
+    var o = "(function(){ return 8 })()"  console.log(8)
+    or
+    var o = "(function(){return 8}())" console.log(8)
+    or
+    var o = "function(){return 8}"
+    console.log(eval("("+o+"())")) // 个人感觉不怎么推荐。
+```
+- 对于数组对象，则不需要考虑上诉情况可以直接进行使用。
+```javascript
+    var o = '["123","7777"][0]' 
+    console.log(o) // 123
+```
 
 ### eval全局执行域及其兼容
-
+- 关于eval全局执行域是在javascript环境中,而javascript代码又必须在一定的环境进行运行，如全局域和局部域，**这里的执行域我个人理解为特定的环境，貌似任何都离不开宿主这个词**。对于被动态执行的code来说，这个问题就较为复杂，比如eval将在全局域中执行还是局部域之行。如下code example:
+```javascript
+    var n  = 1; // global 
+    function f(){
+        var n= 3;
+        eval('n=5') // local 
+        // 如果想覆盖全局变量
+        window.eval('n=5') //  则下方全局就打印 5
+        console.log(n) // 5
+    }
+    f();
+    console.log(n) //  1
+```
 ### eval当前执行域
+-  看上述例子可以看到，eval在全局执行的时候只会影响同名声明的变量，在函数里面声明只会影响当前作用域的同名变量，外部和内部域是隔离开来的!
+```javascript
+    eval("var n = 1");
+    function f(){
+         eval("var n = 2");
+         console.log(n) //2
+    }
+    f();
+    console.log(n) //1
+```
