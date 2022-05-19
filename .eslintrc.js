@@ -29,5 +29,7 @@ module.exports = defineConfig({
   rules: {
     // rules...
     '@typescript-eslint/no-var-requires': 'off', // ts模块中采用require引入模块规则
+    'vue/multiline-html-element-content-newline': 'off', // // 禁用多行标签内容需换行的校验
+    'vue/multi-word-component-names': 'off', // 禁用组件name属性的校验
   },
 })

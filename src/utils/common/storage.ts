@@ -5,8 +5,6 @@
  * @useage store.set(),store.get(),store.has(),store.remove()
  */
 
-import { remove } from '.pnpm/@vue+shared@3.2.33/node_modules/@vue/shared'
-
 const store: any = {
   storage: window.localStorage,
   session: {
