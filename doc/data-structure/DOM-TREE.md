@@ -39,7 +39,7 @@
 - 包括key
 - 值指向的子代
 
-![Alt](https://github.com/lifechat/Vtech-admin/blob/main/doc/docImg/3.jpeg?raw=true)
+![Alt](https://github.com/lifechat/Vtech-admin/blob/main/doc/docImg/9.jpeg?raw=true)
 ```javascript
 class Tree {
     constructor(key){
@@ -107,7 +107,7 @@ constructor(key){
     this.right = null;
 }
 ```
-
+![Alt](https://github.com/lifechat/Vtech-admin/blob/main/doc/docImg/3.jpeg?raw=true)
 **insert (key)**
 
 根据节点开始比较
