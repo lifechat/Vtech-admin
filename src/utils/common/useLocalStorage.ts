@@ -23,6 +23,7 @@ const stringify = (obj: any) => {
  */
 export default function useLocalStorage() {
   /**
+   * 设置localstorage纪录
    *
    * @param key
    * @param value
@@ -33,6 +34,7 @@ export default function useLocalStorage() {
   }
 
   /**
+   * 获取某个字段的value
    *
    * @param key
    */
@@ -44,8 +46,49 @@ export default function useLocalStorage() {
     return value
   }
 
+  /**
+   * 清除所有localstorage字段
+   */
+  function clear() {
+    window.localStorage.clear()
+  }
+
+  /**
+   * @param key
+   * 移除某个字段纪录
+   */
+  function remove(key: string) {
+    localStorage.removeItem(key)
+  }
+
+  /**
+   * 获取所有字段
+   */
+  function getAll() {
+    const ret = {}
+    forEach((key: any, val: any) => {
+      ret[key] = val
+    })
+    return ret
+  }
+
+  /**
+   * 遍历所有的字段
+   *
+   * @param callback
+   */
+  function forEach(callback: any) {
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const key = window.localStorage.key(i)
+      callback(key, getItem(key as string))
+    }
+  }
+
   return {
     setItem,
     getItem,
+    clear,
+    remove,
+    getAll,
   }
 }
