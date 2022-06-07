@@ -1,16 +1,27 @@
 <script setup lang="ts">
-// const app = createApp({
-//   setup() {
-//     // const position = useMousePosition()
-//     const { x, y } = useMousePosition()
-//     return {
-//       x,
-//       y,
-//     }
-//   },
-// })
+import { createApp, ref } from 'vue'
 
-// const count = ref(0)
+const useMousePosition = () => {
+  const x = ref(0)
+  const y = ref(0)
+
+  return {
+    x,
+    y,
+  }
+}
+const app = createApp({
+  setup() {
+    const position = useMousePosition()
+    const { x, y } = useMousePosition()
+    return {
+      x,
+      y,
+    }
+  },
+})
+
+const count = ref(0)
 </script>
 
 <template>
@@ -21,4 +32,4 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

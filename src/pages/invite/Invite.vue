@@ -1,12 +1,14 @@
 <template>
-  <div>111111</div>
+  <div>{{ count }}</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { toRefs, ref, onMounted } from 'vue'
 
-<script>
-export default {
-  name: 'Invite',
-}
+// onMounted(() => {
+//   return count
+// })
+const count = ref(5)
 </script>
+
 <style></style>
