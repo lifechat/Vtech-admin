@@ -1,7 +1,7 @@
 {
   "name": "vtech-admin",
   "version": "1.0.0",
-  "description": "vue3企业级管理系统",
+  "description": "vue3企业级系统",
   "main": "index.js",
   "scripts": {
     "vtech": "pnpm install",
