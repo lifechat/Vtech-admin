@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "vtech": "pnpm install",
-    "start": "pnpm dev",
+    "start": "vite",
     "dev": "vite",
     "build:dev": "build",
     "build:prod": "build prod",
