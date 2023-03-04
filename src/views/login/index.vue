@@ -72,8 +72,8 @@ const validatePass = (rule: any, value: any, callback: any) => {
   }
 }
 const rules = reactive<FormRules>({
-  username: [{ validator: validatePass, trigger: 'blur' }],
-  pass: [{ validator: validateUsername, trigger: 'blur' }],
+  username: [{ validator: validateUsername, trigger: 'blur' }],
+  pass: [{ validator: validatePass, trigger: 'blur' }],
 })
 
 const submitForm = (formEl: FormInstance | undefined) => {
