@@ -36,11 +36,11 @@ const transform: AxiosTransform = {
       throw new Error(ERROR_MESSAGE)
     }
 
-    const { code, message } = data
+    const { status, message } = data
     const errorMessage = message || ERROR_MESSAGE
 
     // 业务层报错
-    const hasSuccess = Reflect.has(data, 'code') && code === ResultEnum.SUCCESS
+    const hasSuccess = Reflect.has(data, 'status') && status === ResultEnum.SUCCESS
     if (!hasSuccess) {
       switch (options.errorShowType) {
         case ErrorShowType.SILENT:
