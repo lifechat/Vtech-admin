@@ -3,7 +3,6 @@ import { AxiosTransform, CreateAxiosOptions } from './axiosTransform'
 import type { RequestOptions, Result } from './types'
 import { ResultEnum, ContentTypeEnum, ErrorShowType } from './types'
 import { checkStatus } from './checkStatus'
-import { ElMessage, ElNotification } from 'element-plus'
 import config from '@/config'
 import { VAxios } from './Axios'
 import { deepMerge } from '../common/common'
@@ -30,6 +29,7 @@ const transform: AxiosTransform = {
       return res.data
     }
 
+    console.log(res.data)
     const { data } = res
 
     if (!data) {
@@ -165,6 +165,8 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
     )
   )
 }
+
+export const request = createAxios()
 
 export const otherRequest = createAxios({
   baseURL: config.baseUrl,
