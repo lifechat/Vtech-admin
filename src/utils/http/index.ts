@@ -29,7 +29,6 @@ const transform: AxiosTransform = {
       return res.data
     }
 
-    console.log(res.data)
     const { data } = res
 
     if (!data) {
@@ -76,7 +75,7 @@ const transform: AxiosTransform = {
       throw new Error(message)
     }
 
-    return data.data
+    return data
   },
 
   // 请求之前处理config

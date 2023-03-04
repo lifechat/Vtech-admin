@@ -9,7 +9,7 @@ import { onMounted } from 'vue'
 const getRequestPassport = async () => {
   try {
     const res = await requestPassport('immoc')
-    console.log(res)
+    const { status, msg, data } = res
   } catch (error) {}
 }
 onMounted(() => {
