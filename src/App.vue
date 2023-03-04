@@ -3,12 +3,7 @@
 </script>
 
 <template>
-  <div>初始化界面</div>
   <router-view />
 </template>
 
-<style lang="less" scoped>
-body {
-  background: skyblue;
-}
-</style>
+<style lang="less" scoped></style>

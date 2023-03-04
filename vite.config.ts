@@ -38,7 +38,7 @@ export default defineConfig({
     host: true,
     port: 8000, // 端口
     https: false,
-    open: true, // 运行脚本自动打开游览器
+    // open: true, // 运行脚本自动打开游览器
     cors: true, //允许跨域
   },
 })

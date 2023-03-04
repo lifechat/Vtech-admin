@@ -16,6 +16,39 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const basicRoutes: Record<string, any> = [
   {
+    path: '/',
+    component: () => import('@/views/layout/index.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('@/views/Home/index.vue'),
+      },
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/Login/index.vue'),
+      },
+      {
+        path: '/goods',
+        name: 'goods',
+        component: () => import('@/views/Goods/index.vue'),
+        children: [
+          {
+            path: 'list',
+            name: 'list',
+            component: () => import('@/views/Goods/GoodsList.vue'),
+          },
+          {
+            path: 'category',
+            name: 'category',
+            component: () => import('@/views/Goods/Category.vue'),
+          },
+        ],
+      },
+    ],
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('@/views/login/index.vue'),
