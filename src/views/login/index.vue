@@ -5,6 +5,9 @@
         <img src="@/assets/login-header7.png" alt="" />
       </div>
       <div class="login-form-box">
+        <div class="avatar-box">
+          <img class="avatar" src="@/assets/face.png" alt="" />
+        </div>
         <el-form
           ref="ruleFormRef"
           :model="ruleForm"
@@ -119,8 +122,25 @@ onMounted(() => {
       box-sizing: border-box;
       width: 100%;
       padding: 40px;
-      padding-top: 80px;
+      padding-top: 100px;
+      position: relative;
 
+      .avatar-box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        top: -50px;
+        right: calc(50% - 50px);
+        overflow: hidden;
+
+        .avatar {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
       .button-box {
         margin: 0 auto;
       }
