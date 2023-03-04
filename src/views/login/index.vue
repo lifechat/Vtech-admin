@@ -3,13 +3,19 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { loginStore } from '@/store/login'
 import { requestPassport } from '@/api/login/index'
 import { onMounted } from 'vue'
 
+const stores = loginStore()
+
+const { isRepeatUsername } = storeToRefs(stores)
+console.log(isRepeatUsername)
 const getRequestPassport = async () => {
   try {
-    const res = await requestPassport('immoc')
-    const { status, msg, data } = res
+    await stores.getRequestPassport('lifechat')
   } catch (error) {}
 }
 onMounted(() => {

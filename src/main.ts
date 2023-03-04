@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
+
 import App from './App.vue'
 import 'normalize.css'
 import '@/style/reset.less'
 import { setupRouter } from '@/router'
+import { setStore } from './store'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 /**
@@ -16,7 +18,7 @@ async function InitApp() {
   }
   // 配置路由
   setupRouter(app)
-
+  setStore(app)
   app.mount('#app')
 }
 InitApp()
