@@ -17,32 +17,27 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const basicRoutes: Record<string, any> = [
   {
     path: '/',
-    component: () => import('@/views/layout/index.vue'),
+    component: () => import('@/views/layoutView/index.vue'),
     children: [
       {
-        path: '/',
+        path: '/home',
         name: 'home',
-        component: () => import('@/views/Home/index.vue'),
-      },
-      {
-        path: '/login',
-        name: 'login',
-        component: () => import('@/views/Login/index.vue'),
+        component: () => import('@/views/HomeView/index.vue'),
       },
       {
         path: '/goods',
         name: 'goods',
-        component: () => import('@/views/Goods/index.vue'),
+        component: () => import('@/views/GoodsView/index.vue'),
         children: [
           {
             path: 'list',
             name: 'list',
-            component: () => import('@/views/Goods/GoodsList.vue'),
+            component: () => import('@/views/GoodsView/GoodsList.vue'),
           },
           {
             path: 'category',
             name: 'category',
-            component: () => import('@/views/Goods/Category.vue'),
+            component: () => import('@/views/GoodsView/Category.vue'),
           },
         ],
       },
@@ -51,7 +46,12 @@ const basicRoutes: Record<string, any> = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/login/index.vue'),
+    component: () => import('@/views/loginView/index.vue'),
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/views/ErrorView/index.vue'),
   },
 ]
 

@@ -1,5 +1,6 @@
-import { requestPassport } from '@/api/login'
-import { defineStore, mapState } from 'pinia'
+import { requestLogin, requestPassport } from '@/api/login'
+import { errorMsg, messageTips } from '@/utils/common/common'
+import { defineStore } from 'pinia'
 
 export const loginStore = defineStore('loginStore', {
   state: () => {
@@ -9,18 +10,11 @@ export const loginStore = defineStore('loginStore', {
   },
   getters: {},
   actions: {
-    async getRequestPassport(username: string) {
-      try {
-        const res = await requestPassport(username)
-        const { status } = res
-        if (status == 200) {
-          this.isRepeatUsername = !this.isRepeatUsername
-        }
-      } catch (error) {
-        ElMessage({
-          message: '接口错误',
-          type: 'error',
-        })
+    async getLoginInfo(data: any) {
+      const res = await requestLogin(data)
+      const { status } = res
+      if (status === 200) {
+        messageTips('success', '登录成功', '进入后台管理系统')
       }
     },
   },

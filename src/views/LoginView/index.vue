@@ -18,7 +18,7 @@
           class="demo-ruleForm"
         >
           <el-form-item label="UserName" prop="username">
-            <el-input v-model="ruleForm.username" type="password" autocomplete="off" />
+            <el-input v-model="ruleForm.username" type="username" autocomplete="off" />
           </el-form-item>
           <el-form-item label="Password" prop="pass">
             <el-input v-model="ruleForm.pass" type="password" autocomplete="off" />
@@ -35,25 +35,24 @@
   </div>
 </template>
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import { loginStore } from '@/store/login'
 import { onMounted, ref, reactive } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
+import { useRouter } from 'vue-router'
 
 const ruleForm = reactive({
   username: '',
   pass: '',
 })
 const stores = loginStore()
-const { isRepeatUsername } = storeToRefs(stores)
+const route = useRouter()
 
-const handleClickLogin = () => {
-  isRepeatUsername.value = !isRepeatUsername.value
-}
-const getRequestPassport = async () => {
-  try {
-    await stores.getRequestPassport('immoc')
-  } catch (error) {}
+const getRequestLogin = () => {
+  const params = {
+    username: ruleForm.username,
+    password: ruleForm.pass,
+  }
+  stores.getLoginInfo(params)
 }
 const ruleFormRef = ref<FormInstance>()
 
@@ -71,6 +70,7 @@ const validatePass = (rule: any, value: any, callback: any) => {
     callback()
   }
 }
+
 const rules = reactive<FormRules>({
   username: [{ validator: validateUsername, trigger: 'blur' }],
   pass: [{ validator: validatePass, trigger: 'blur' }],
@@ -78,11 +78,11 @@ const rules = reactive<FormRules>({
 
 const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
-  formEl.validate((valid) => {
+  formEl.validate(async (valid) => {
     if (valid) {
-      console.log('submit!')
+      getRequestLogin()
+      route.push('/')
     } else {
-      console.log('error submit!')
       return false
     }
   })
@@ -92,9 +92,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.resetFields()
 }
-onMounted(() => {
-  getRequestPassport()
-})
 </script>
 <style scoped lang="scss">
 .page {

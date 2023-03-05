@@ -102,3 +102,20 @@ export function deepMerge<T = any>(source: any = {}, target: any = {}): T {
   }
   return source
 }
+
+// 错误提示
+export const errorMsg = (): void => {
+  ElMessage({
+    message: '接口错误1',
+    type: 'error',
+  })
+}
+
+// 成功提示
+export const messageTips = (type: any, title?: string, msg?: string): void => {
+  ElNotification({
+    title: title,
+    message: msg,
+    type: type,
+  })
+}
