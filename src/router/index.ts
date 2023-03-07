@@ -49,8 +49,7 @@ const basicRoutes: Record<string, any> = [
     component: () => import('@/views/loginView/index.vue'),
   },
   {
-    path: '/404',
-    name: '404',
+    path: '/:path(.*)',
     component: () => import('@/views/ErrorView/index.vue'),
   },
 ]
