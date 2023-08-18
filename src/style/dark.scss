@@ -1,0 +1,41 @@
+/* 深色模式样式
+------------------------------- */
+[data-theme='dark']{
+    // 变量(自定义时，只需修改这里的值)
+	--tech-bg-main: #1f1f1f;
+	--tech-color-white: #ffffff;
+	--tech-color-disabled: #191919;
+	--tech-color-bar: #dadada;
+	--tech-color-primary: #303030;
+	--tech-border-color: #424242;
+	--tech-border-black: #333333;
+	--tech-border-columns: #2a2a2a;
+	--tech-color-seting: #505050;
+	--tech-text-color-regular: #9b9da1;
+	--tech-text-color-placeholder: #7a7a7a;
+	--tech-color-hover: #3c3c3c;
+	--tech-color-hover-rgba: rgba(0, 0, 0, 0.3);
+
+	// root
+	--tech-bg-main-color: var(--tech-bg-main) !important;
+	--tech-bg-topBar: var(--tech-color-disabled) !important;
+	--tech-bg-topBarColor: var(--tech-color-bar) !important;
+	--tech-bg-menuBar: var(--tech-color-disabled) !important;
+	--tech-bg-menuBarColor: var(--tech-color-bar) !important;
+	--tech-bg-menuBarActiveColor: var(--tech-color-hover-rgba) !important;
+	--tech-bg-columnsMenuBar: var(--tech-color-disabled) !important;
+	--tech-bg-columnsMenuBarColor: var(--tech-color-bar) !important;
+	--tech-border-color-light: var(--tech-border-black) !important;
+	--tech-color-primary-lighter: var(--tech-color-primary) !important;
+	--tech-color-success-lighter: var(--tech-color-primary) !important;
+	--tech-color-warning-lighter: var(--tech-color-primary) !important;
+	--tech-color-danger-lighter: var(--tech-color-primary) !important;
+	--tech-bg-color: var(--tech-color-primary) !important;
+	--tech-color-dark-hover: var(--tech-color-hover) !important;
+	--tech-color-menu-hover: var(--tech-color-hover-rgba) !important;
+	--tech-color-user-hover: var(--tech-color-hover-rgba) !important;
+	--tech-color-seting-main: var(--tech-color-seting) !important;
+	--tech-color-seting-aside: var(--tech-color-hover) !important;
+	--tech-color-seting-header: var(--tech-color-primary) !important;
+
+}

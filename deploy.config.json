@@ -1,0 +1,19 @@
+[
+    {
+      "name": "test",
+      "cdn": false,
+      "local": {
+        "distDir": "./build",
+        "distArchive": "./deploy/dist.tar.gz",
+        "putFiles": ["./deploy/pm2.test.json", "./deploy/server.js"]
+      },
+      "server": {
+        "host": "119.23.246.120",
+        "username": "root",
+        "port": 33,
+        "serverDir": "/data/fh5/test",
+        "bakeup": false
+      }
+    }
+  ]
+  

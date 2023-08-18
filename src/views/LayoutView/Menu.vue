@@ -13,7 +13,7 @@
         <span>天天吃货后台系统</span>
       </template>
     </el-menu-item>
-    <el-menu-item index="/">
+    <el-menu-item index="/home">
       <el-icon><Briefcase /></el-icon>
       <span>系统首页</span>
     </el-menu-item>

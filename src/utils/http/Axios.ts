@@ -79,6 +79,7 @@ export class VAxios {
       if (requestInterceptors && isFunction(requestInterceptors)) {
         config = requestInterceptors(config, this.options)
       }
+
       return config
     }, undefined)
 

@@ -42,9 +42,15 @@ export default {
     }
 
     onMounted(() => {
+      this.getUserInfoHandle()
       // 获取当前时间
       time.value = dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')
     })
+
+    const getUserInfoHandle = async () => {
+      const res = await requestUserInfo()
+      console.log(res)
+    }
 
     return { change, time, loginout }
   },

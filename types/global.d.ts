@@ -1,3 +1,6 @@
+//声明外部npm外部模块
+declare module 'js-cookie'
+
 import type {
   ComponentRenderProxy,
   VNode,
@@ -20,6 +23,23 @@ declare global {
     lastBuildTime: string
   }
 
+  // 声明文件，定义全局变量
+  /* eslint-disable */
+  declare interface Window {
+    nextLoading: boolean
+    BMAP_SATELLITE_MAP: any
+    BMap: any
+  }
+
+  // 声明一个模块，防止引入文件时报错
+  declare module '*.json'
+  declare module '*.png'
+  declare module '*.jpg'
+  declare module '*.svg'
+  declare module '*.scss'
+  declare module '*.ts'
+  declare module '*.js'
+
   // vue 全局声明
   declare type PropType<T> = VuePropType<T>
   declare type VueNode = VNodeChild | JSX.Element
@@ -27,6 +47,9 @@ declare global {
   export type Writable<T> = {
     -readonly [P in keyof T]: T[P]
   }
+
+  declare type HtmlType = HTMLElement | string | undefined | null;
+
 
   declare type Recordable<T = any> = Record<string, T>
 
@@ -47,6 +70,15 @@ declare global {
     VITE_GENERATE_UI: string
   }
 
+  // 声明 ref
+  declare type RefType<T = any> = T | null
+  // 申明 对象
+  declare type EmptyObjectType<T = any> = {
+    [key: string]: T
+  }
+  // 申明 数组
+  declare type EmptyArrayType<T = any> = T[]
+
   declare function parseInt(s: string | number, radix?: number): number
   declare function parseFloat(string: string | number): number
   namespace JSX {
@@ -63,6 +95,8 @@ declare global {
     }
   }
 }
+
+// 声明 HTMLElement
 
 declare module 'vue' {
   export type JSXComponent<Props = any> =

@@ -6,6 +6,7 @@ import { checkStatus } from './checkStatus'
 import config from '@/config'
 import { VAxios } from './Axios'
 import { deepMerge } from '../common/common'
+import { getToken } from '@/utils/common/auth'
 
 const ERROR_MESSAGE = '请求出错，请稍候重试'
 const AUTHENTICATION_SCHEME = 'Bearer'
@@ -35,11 +36,12 @@ const transform: AxiosTransform = {
       throw new Error(ERROR_MESSAGE)
     }
 
-    const { status, message } = data
-    const errorMessage = message || ERROR_MESSAGE
+    const { code, msg } = data
+    const errorMessage = msg || ERROR_MESSAGE
 
     // 业务层报错
-    const hasSuccess = Reflect.has(data, 'status') && status === ResultEnum.SUCCESS
+    const hasSuccess = Reflect.has(data, 'code') && code === ResultEnum.SUCCESS
+
     if (!hasSuccess) {
       switch (options.errorShowType) {
         case ErrorShowType.SILENT:
@@ -72,7 +74,7 @@ const transform: AxiosTransform = {
           break
       }
       // TODO: 等待umi v3 支持ERRROR_OVERLAY关闭开发环境下error遮罩
-      throw new Error(message)
+      throw new Error(msg)
     }
 
     return data
@@ -88,11 +90,14 @@ const transform: AxiosTransform = {
    * @description: 请求拦截器处理
    */
   requestInterceptors: (config) => {
-    // 请求之前处理config
-    // const token = sessionStorage.getItem(ACCESS_TOKEN_CACHE_KEY)
-    // if (token && (config as any)?.requestOptions?.withToken) {
-    //   ;(config as any).headers.Authorization = `${AUTHENTICATION_SCHEME} ${token}`
-    // }
+    // 是否需要设置 token
+    const isToken = (config.headers || {}).isToken === false
+    // 是否需要防止数据重复提交
+    const isRepeatSubmit = (config.headers || {}).repeatSubmit === false
+
+    if (getToken() && !isToken) {
+      config.headers!.Authorization = 'Bearer ' + getToken()
+    }
     return config
   },
 

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import requireTransform from 'vite-plugin-require-transform'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
@@ -28,14 +29,13 @@ export default defineConfig({
         find: '@',
         replacement: pathResolve('src') + '/',
       },
-      {
-        find: '#',
-        replacement: pathResolve('types') + '/',
-      },
     ],
   },
   server: {
     host: '0.0.0.0',
     port: 8000, // 端口
+  },
+  define: {
+    __TECH_NAME__: JSON.stringify(process.env.npm_package_name),
   },
 })
